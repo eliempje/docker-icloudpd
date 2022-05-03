@@ -787,7 +787,7 @@ Notify(){
       webhook_payload="$(echo -e "${notification_title} - ${notification_message}")"
       notification_result="$(curl -X 'PUT' --silent --output /dev/null --write-out "%{http_code}" "${notification_url}" \
          --header 'content-type: text/plain' \
-         --data '${webhook_payload}')"
+         --data "${webhook_payload}")"
    elif [ "${notification_type}" = "Webhook" ]; then
       webhook_payload="$(echo -e "${notification_title} - ${notification_message}")"
       notification_result="$(curl --silent --output /dev/null --write-out "%{http_code}" "${notification_url}" \
